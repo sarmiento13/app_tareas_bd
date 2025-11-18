@@ -93,46 +93,7 @@ Swal.fire({
 //editar una tarea
 const editTask = (id) => {
     const task = tasks.find(el => el.id === id);
-    // ...existing code...
-Swal.fire({
-  title: "Agregar tarea",
-  input: "text",
-  inputPlaceholder: "Escribe tu tarea",
-  inputAttributes: {
-    autocapitalize: "off"
-  },
-  showCancelButton: true,
-  confirmButtonText: "Agregar",
-  inputValidator: (value) => {
-    if (!value || !value.trim()) {
-      return "Por favor ingresa una tarea válida";
-    }
-    return null;
-  },
-  preConfirm: (value) => {
-    const text = value.trim();
-    const newTask = {
-      id: Date.now(),
-      Text: text,
-      done: false,
-      title: text
-    };
-    tasks = [...tasks, newTask];
-    renderTasks();
-    return newTask;
-  }
-}).then((result) => {
-  if (result.isConfirmed) {
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "TAREA AGREGADA",
-      showConfirmButton: false,
-      timer: 800
-    });
-  }
-});
-// ...existing code...
+    const newText = prompt("EDITA LA TAREA", task.Text);
     // validacion
     if (newText === null && newText.trim() === "") return
     // recorre las tareas una vez encontardo la tarea con el id indicado setear el nuevo texto 
